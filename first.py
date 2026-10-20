@@ -58,7 +58,6 @@ def Sacant(a, b, e):
     print(f"x is {float(x0):.4f} with error margin {e}\n")
 
 
-
 a = 0
 b = 1
 e = 0.01
