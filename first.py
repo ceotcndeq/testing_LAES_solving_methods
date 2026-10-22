@@ -58,9 +58,37 @@ def Sacant(a, b, e):
     print(f"x is {float(x0):.4f} with error margin {e}\n")
 
 
+def Tangent(a, b, e):
+    fxii = sp.diff(equation, x, 2)
+    fxii_fx = fxii.subs(x, a) * equation.subs(x, a)
+
+    if (fxii_fx > 0): x0 = a
+    else: x0 = b
+
+    fx0 = equation.subs(x, x0).evalf()
+    fx0i = sp.diff(equation, x).subs(x, x0).evalf()
+
+    x1 = x0 - fx0/fx0i
+
+    while abs(x1 - x0) >= e:
+        print(f"xn = {float(x0):.4f}, f(xn) = {float(fx0):.4f}, f(xn') = {float(fx0i):.4f}, "
+              f"(xn/fxn') = {float(fx0/fx0i):.4f}, |xn-xn-1| = {float(abs(x1-x0)):.4f}")
+
+        x0 = x1
+        fx0 = equation.subs(x, x0).evalf()
+        fx0i = sp.diff(equation, x).subs(x, x0).evalf()
+        x1 = x0 - fx0/fx0i
+
+    print(f"xn = {float(x0):.4f}, f(xn) = {float(fx0):.4f}, f(xn') = {float(fx0i):.4f}, "
+        f"(xn/fxn') = {float(fx0/fx0i):.4f}, |xn-xn-1| = {float(abs(x1-x0)):.4f}")
+
+    print(f"x is {float(x0):.4f} with error margin {e}\n")
+
+
 a = 0
 b = 1
 e = 0.01
 Bisection(a, b, e)
 Sacant(a, b, e)
+Tangent(a, b, e)
 

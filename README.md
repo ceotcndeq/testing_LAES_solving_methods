@@ -36,3 +36,7 @@ actually, the solution is simple, as it always is, but i went thousands circles 
 i'm happy anyway
 
 the next method will be Newton's method, most likely
+
+2026/10/22
+i implemented Tangent (Newton's) method. bruh i hate it this is so bad i'll try to change this i was desperate
+to make it work sorry
